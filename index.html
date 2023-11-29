@@ -1,10 +1,44 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <header>
-<title>Pushpa's world</title>
+    <script>
+        function calculate() {
+            // Get values from input fields
+            let written = parseFloat(document.getElementById("written").value);
+            let total = parseFloat(document.getElementById("total").value);
+
+            // Check if the input is a valid number
+            if (isNaN(written) || isNaN(total)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            // Perform addition
+            let writtenScore = (written/180)*70;
+            let interviewScore = total - writtenScore;
+            let interview = (interviewScore*60)/30;
+
+            // Display the result
+            document.getElementById("result").innerHTML = "Your interview marks: " + interview.toFixed(2);
+        }
+
+    </script>
 </header>
 <body>
-<div>Hello world</div>
+<div>KVS score calculation</div>
+<div>
+    <label for="written">Enter written(out of 180):</label>
+    <input type="text" id="written" placeholder="130">
+</div>
+
+<div>
+    <label for="total">Enter total score:</label>
+    <input type="text" id="total" placeholder="74.61">
+</div>
+
+<button onclick="calculate()">Submit</button>
+
+<p id="result"></p>
 </body>
 <footer></footer>
 </html>
